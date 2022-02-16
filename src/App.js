@@ -1,7 +1,9 @@
+import AddUsers from "./components/AddUsers";
 
 function App() {
   return (
     <div >
+      <AddUsers/>
     </div>
   );
 }
