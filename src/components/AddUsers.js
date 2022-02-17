@@ -1,10 +1,34 @@
 import Input from "../project-library/Input/Input";
 import Button from "../project-library/Button/Button";
 import styles from "./AddUsers.module.css";
+import { useState } from "react";
 
 const AddUsers = (props) => {
+
+  const [username, setUsername] = useState('');
+  const [age, setAge] = useState('');
+
+  const usernameChangeHandler = event => {
+    setUsername(event.target.value);
+  }
+
+  const ageChangeHandler = event => {
+    setAge(event.target.value);
+  }
+
+  const resetForm = () => {
+    setAge('');
+    setUsername('');
+  }
+
   const addUserHandler = event => {
       event.preventDefault();
+      const newUser = {
+        username,
+        age
+      };
+      resetForm();
+      props.onAddUser(newUser);
   };
 
   return (
@@ -15,11 +39,11 @@ const AddUsers = (props) => {
       >
         <div className={styles.addUsers__field}>
           <label className={styles.addUsers__label}>Username</label>
-          <Input type="text"></Input>
+          <Input value={username} type="text" onChange={usernameChangeHandler}></Input>
         </div>
         <div className={styles.addUsers__field}>
           <label className={styles.addUsers__label}>Age(Year)</label>
-          <Input type="number"></Input>
+          <Input value={age} type="number" onChange={ageChangeHandler}></Input>
         </div>
         <Button type="submit" label="Add User" />
       </form>

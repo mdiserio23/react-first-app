@@ -1,9 +1,16 @@
+import { useState } from "react";
 import AddUsers from "./components/AddUsers";
 
 function App() {
+  const [userArray, setUserArray] = useState([])
+
+  const addUserHandler = newUser => {
+    setUserArray(prevUser => [newUser, ...prevUser]);
+  }
+
   return (
     <div >
-      <AddUsers/>
+      <AddUsers onAddUser={addUserHandler}/>
     </div>
   );
 }
