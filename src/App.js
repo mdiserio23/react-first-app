@@ -10,7 +10,7 @@ function App() {
   }
 
   return (
-    <div >
+    <div>
       <AddUsers onAddUser={addUserHandler}/>
       <UsersList usersList={userArray}/>
     </div>
