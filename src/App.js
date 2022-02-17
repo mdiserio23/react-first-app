@@ -9,10 +9,15 @@ function App() {
     setUserArray(prevUser => [newUser, ...prevUser]);
   }
 
+  const deleteUserHandler = id => {
+    console.log('ciao', id);
+    setUserArray(prevUser => prevUser.filter(user => user.id !== id));
+  }
+
   return (
     <div>
       <AddUsers onAddUser={addUserHandler}/>
-      <UsersList usersList={userArray}/>
+      <UsersList usersList={userArray} onDelete={deleteUserHandler}/>
     </div>
   );
 }
