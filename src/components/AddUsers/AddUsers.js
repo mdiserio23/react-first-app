@@ -65,22 +65,28 @@ const AddUsers = (props) => {
           className={styles["addUsers__form-control"]}
         >
           <div className={styles.addUsers__field}>
-            <label className={styles.addUsers__label}>Username</label>
+            <label htmlFor="username" className={styles.addUsers__label}>
+              Username
+            </label>
             <Input
               value={username}
+              id="username"
               type="text"
               onChange={usernameChangeHandler}
             ></Input>
           </div>
           <div className={styles.addUsers__field}>
-            <label className={styles.addUsers__label}>Age(Year)</label>
+            <label htmlFor="age" className={styles.addUsers__label}>
+              Age(Year)
+            </label>
             <Input
               value={age}
+              id="age"
               type="number"
               onChange={ageChangeHandler}
             ></Input>
           </div>
-          <Button type="submit" label="Add User" />
+          <Button type="submit">Add user</Button>
         </form>
       </Card>
     </div>
