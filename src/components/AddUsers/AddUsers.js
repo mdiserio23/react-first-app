@@ -1,7 +1,8 @@
-import Input from "../project-library/Input/Input";
-import Button from "../project-library/Button/Button";
+import Input from "../../project-library/Input/Input";
+import Button from "../../project-library/Button/Button";
 import styles from "./AddUsers.module.css";
 import { useState } from "react";
+import Card from "../../project-library/Card/Card";
 
 const AddUsers = (props) => {
 
@@ -24,6 +25,7 @@ const AddUsers = (props) => {
   const addUserHandler = event => {
       event.preventDefault();
       const newUser = {
+        id: Math.random(),
         username,
         age
       };
@@ -32,7 +34,7 @@ const AddUsers = (props) => {
   };
 
   return (
-    <div className={styles.addUsers}>
+    <Card className={styles.addUsers}>
       <form
         onSubmit={addUserHandler}
         className={styles["addUsers__form-control"]}
@@ -47,7 +49,7 @@ const AddUsers = (props) => {
         </div>
         <Button type="submit" label="Add User" />
       </form>
-    </div>
+    </Card>
   );
 };
 

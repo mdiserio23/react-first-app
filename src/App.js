@@ -1,5 +1,6 @@
 import { useState } from "react";
-import AddUsers from "./components/AddUsers";
+import AddUsers from "./components/AddUsers/AddUsers";
+import UsersList from "./components/UsersList/UsersList";
 
 function App() {
   const [userArray, setUserArray] = useState([])
@@ -11,6 +12,7 @@ function App() {
   return (
     <div >
       <AddUsers onAddUser={addUserHandler}/>
+      <UsersList usersList={userArray}/>
     </div>
   );
 }

@@ -1,3 +1,14 @@
 .input {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  width: 90%;
+  max-width: 40rem;
+  font: inherit;
+  display: block;
+  border: 1px solid #ccc;
+}
 
+.input:focus {
+  outline: none;
+  border-color: #4f005f;
 }
