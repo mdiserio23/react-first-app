@@ -1,6 +1,6 @@
-import Card from "../../project-library/Card/Card";
-import styles from "./ErrorModal.module.css";
-import Button from "../../project-library/Button/Button";
+import Backdrop from "./Backdrop";
+import ModalContent from "./ModalContent";
+import ReactDOM from "react-dom";
 
 const ErrorModal = (props) => {
   const closeModalHandler = () => {
@@ -8,18 +8,18 @@ const ErrorModal = (props) => {
   };
   return (
     <>
-      <div className={styles.backdrop} onClick={closeModalHandler}/>
-      <Card className={styles.modal}>
-        <header className={styles.header}>
-          <h2>{props.title}</h2>
-        </header>
-        <div className={styles.content}>
-          <p>{props.message}</p>
-        </div>
-        <footer className={styles.actions}>
-          <Button onClick={closeModalHandler}>OK</Button>
-        </footer>
-      </Card>
+      {ReactDOM.createPortal(
+        <Backdrop onConfirm={closeModalHandler} />,
+        document.getElementById('backdrop-root')
+      )}
+      {ReactDOM.createPortal(
+        <ModalContent
+          onCloseModal={closeModalHandler}
+          title={props.title}
+          message={props.message}
+        />,
+        document.getElementById('modal-root')
+      )}
     </>
   );
 };
