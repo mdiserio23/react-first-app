@@ -7,7 +7,8 @@ const ErrorModal = (props) => {
     props.onCloseModal();
   };
   return (
-    <div className={styles.backdrop}>
+    <>
+      <div className={styles.backdrop} onClick={closeModalHandler}/>
       <Card className={styles.modal}>
         <header className={styles.header}>
           <h2>{props.title}</h2>
@@ -19,7 +20,7 @@ const ErrorModal = (props) => {
           <Button onClick={closeModalHandler}>OK</Button>
         </footer>
       </Card>
-    </div>
+    </>
   );
 };
 
