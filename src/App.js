@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AddUsers from "./components/AddUsers/AddUsers";
 import UsersList from "./components/UsersList/UsersList";
+import Wrapper from "./Helper/Wrapper";
 
 function App() {
   const [userArray, setUserArray] = useState([])
@@ -15,10 +16,10 @@ function App() {
   }
 
   return (
-    <div>
+    <Wrapper>
       <AddUsers onAddUser={addUserHandler}/>
       <UsersList usersList={userArray} onDelete={deleteUserHandler}/>
-    </div>
+    </Wrapper>
   );
 }
 
